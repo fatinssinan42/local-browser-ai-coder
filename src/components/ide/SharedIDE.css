@@ -1,0 +1,393 @@
+.ide-view {
+  height: 100%;
+  margin: calc(-1 * var(--sp-6));
+}
+
+.ide-layout {
+  display: flex;
+  height: 100%;
+}
+
+.ide-explorer {
+  width: 220px;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-default);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.ide-explorer-header {
+  padding: var(--sp-3) var(--sp-4);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ide-new-file-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+}
+.ide-new-file-btn:hover { color: var(--text-primary); background: var(--bg-hover); }
+
+.ide-new-file-row {
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--border-default);
+}
+.ide-new-file-input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  padding: 3px 6px;
+  outline: none;
+}
+.ide-new-file-input:focus { border-color: var(--accent-primary); }
+
+.ide-explorer-empty {
+  padding: var(--sp-4);
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  text-align: center;
+}
+
+.ide-file-tree {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--sp-1) 0;
+}
+
+.file-tree-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.file-tree-item:hover {
+  background: var(--bg-hover);
+}
+
+.file-tree-item.file {
+  padding-left: 28px;
+  color: var(--text-primary);
+}
+
+.file-tree-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.folder-chevron {
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+
+/* Editor area */
+.ide-editor-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ide-tabs {
+  display: flex;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-default);
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.ide-tabs::-webkit-scrollbar {
+  height: 0;
+}
+
+.ide-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  border-right: 1px solid var(--border-default);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.ide-tab:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.ide-tab.active {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--accent-primary);
+}
+
+.ide-tab-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  padding: 2px;
+  border-radius: 3px;
+  display: flex;
+  opacity: 0;
+  transition: opacity var(--duration-fast);
+}
+
+.ide-tab:hover .ide-tab-close {
+  opacity: 1;
+}
+
+.ide-tab-close:hover {
+  background: var(--bg-active);
+  color: var(--text-primary);
+}
+
+/* Editor wrapper */
+.ide-editor-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.ide-editor-wrapper > section,
+.ide-editor-wrapper > div:first-child {
+  flex: 1;
+}
+
+/* Action bar */
+.ide-action-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-default);
+  overflow-x: auto;
+}
+
+.ide-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background: none;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.ide-action-btn:hover {
+  background: var(--accent-primary-subtle);
+  color: var(--accent-primary);
+  border-color: var(--accent-primary-muted);
+}
+
+.ide-produced-by {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Empty state */
+.ide-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  color: var(--text-muted);
+}
+
+.ide-empty p {
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 768px) {
+  .ide-explorer {
+    width: 160px;
+  }
+}
+
+.ide-editor-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: var(--sp-3);
+  color: var(--text-muted);
+  background: var(--bg-base);
+}
+
+.ide-editor-loading .spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Shared IDE: Peer presence ─────────────────────────────── */
+
+.ide-explorer-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ide-presence-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--text-xs);
+  transition: all var(--duration-fast);
+}
+.ide-presence-btn:hover,
+.ide-presence-btn.active {
+  color: var(--accent-primary);
+  background: var(--accent-primary-subtle);
+}
+.ide-presence-count {
+  font-size: 10px;
+  font-weight: var(--weight-semibold);
+}
+
+.ide-presence-panel {
+  border-bottom: 1px solid var(--border-default);
+  padding: var(--sp-2) var(--sp-3);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--bg-base);
+}
+
+.ide-presence-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+}
+
+.ide-presence-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ide-presence-name {
+  color: var(--text-primary);
+  font-weight: var(--weight-medium);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ide-presence-file {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Peer dots on file tree items */
+.file-tree-peer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-left: 2px;
+  box-shadow: 0 0 4px currentColor;
+}
+
+/* Peer dots on tabs */
+.ide-tab-peer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: peer-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes peer-dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Peer bar inside editor showing who is in the file */
+.ide-peer-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 3px var(--sp-3);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-default);
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.ide-peer-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+}
+
+.ide-peer-bar-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: peer-dot-pulse 2s ease-in-out infinite;
+}
+
+.ide-peer-bar-name {
+  color: var(--text-secondary);
+  font-weight: var(--weight-medium);
+}
+
+.ide-peer-bar-pos {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
